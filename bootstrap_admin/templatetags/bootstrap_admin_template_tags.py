@@ -74,6 +74,18 @@ def display_sidebar_menu(has_filters=False):
 
 
 @register.assignment_tag
+def bootstrap_admin_logo():
+    '''
+    # How to use?
+    Define in settings.py this variable:
+    BOOTSTRAP_ADMIN_URL_LOGO = 'static/logo.png'
+    or
+    BOOTSTRAP_ADMIN_URL_LOGO = 'http://www.my_site.com/logo.png'
+    '''
+    return getattr(settings, 'BOOTSTRAP_ADMIN_URL_LOGO', None)
+
+
+@register.assignment_tag
 def jquery_vendor_path():
     if DJANGO_VERSION < (1, 9):
         return 'admin/js/jquery.js'
